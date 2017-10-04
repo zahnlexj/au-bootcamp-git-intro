@@ -110,19 +110,40 @@ echo $name1
 #=======
 
 
-
 ## a loop will run through the output for each file and keep track of the count so far
 
 #ct=0
 
+#<<<<<<< HEAD
 #for x in #list of filepaths
 #do
 #	ct=`expr ct+$ct`
 #done
+#=======
+for x in "$@"   # $@ is nice because it's a list of the input arguments
+do
+	# Defining variables
+	#this counts number of sequences in the file
+	seq=`grep ">" $x | wc -l`
+
+	#this is the counter that finds the total count between files
+	ct=`expr $ct+$seq`
+	#"seq" will be the count of sequences in file "x"
+done
+#>>>>>>> e5dde4025b4059fdcbf56999ccb787cd0bd734b4
 
 
 
 ## print out the total number of sequences across files
 
+#<<<<<<< HEAD
 #echo $ct
 #>>>>>>> 778a2311df479565e5574be7062e112476eb838f
+#=======
+echo $ct
+#>>>>>>> 778a2311df479565e5574be7062e112476eb838f
+
+#Use basename to strip directory and suffix from the filename
+#basename line of code into loop
+
+#>>>>>>> e5dde4025b4059fdcbf56999ccb787cd0bd734b4
