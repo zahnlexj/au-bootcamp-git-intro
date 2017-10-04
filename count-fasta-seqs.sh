@@ -94,3 +94,20 @@ echo "$@"
 #
 # ADD YOUR CODE BELOW:
 
+
+
+
+## a loop will run through the output for each file and keep track of the count so far
+
+ct=0
+
+for x in #list of filepaths
+do
+	ct=`expr ct+$ct`
+done
+
+
+
+## print out the total number of sequences across files
+
+echo $ct
