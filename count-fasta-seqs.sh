@@ -112,7 +112,8 @@ ct=0
 
 for x in #list of filepaths
 do
-	ct=`expr ct+$ct`
+	ct=`expr $ct+$y`
+	#"y" will be the count of sequences in file "x"
 done
 
 
