@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# IS THIS WORKING???
 # How this script should behave:
 #
 # INPUT:   Paths to one or more fasta sequence files
