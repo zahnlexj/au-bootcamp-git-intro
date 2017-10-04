@@ -105,15 +105,19 @@ seq2=`grep ">" $2 | wc -l`
 =======
 
 
-
 ## a loop will run through the output for each file and keep track of the count so far
 
 ct=0
 
-for x in #list of filepaths
+for x in "$@"   # $@ is nice because it's a list of the input arguments
 do
-	ct=`expr $ct+$y`
-	#"y" will be the count of sequences in file "x"
+	# Defining variables
+	#this counts number of sequences in the file
+	seq=`grep ">" $x | wc -l`
+
+	#this is the counter that finds the total count between files
+	ct=`expr $ct+$seq`
+	#"seq" will be the count of sequences in file "x"
 done
 
 
