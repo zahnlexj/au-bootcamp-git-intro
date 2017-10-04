@@ -94,3 +94,10 @@ echo "$@"
 #
 # ADD YOUR CODE BELOW:
 
+# /bin/bash
+
+# Defining variables
+
+seq1=`grep ">" $1 | wc -l`
+seq2=`grep ">" $2 | wc -l`
+ 
