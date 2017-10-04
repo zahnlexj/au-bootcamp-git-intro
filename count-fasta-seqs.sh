@@ -93,4 +93,24 @@ echo "$@"
 # Good luck!
 #
 # ADD YOUR CODE BELOW:
+#!/bin/bash
 
+#the number of sequence in the file
+seq1=`grep ">" $1 | wc -l`
+seq2=`grep ">" $2 | wc -l`
+
+#the name of file
+name1=`$1`
+name2=`$2`
+
+
+#the number of sequence of two files
+sum=`expr "($name1+$name2)"`
+
+echo "$sum"
+echo "$seq1 $name1" > .txt
+echo "$seq2 $name2" >> number.txt
+echo "$sum" >> number.txt
+
+
+ 
