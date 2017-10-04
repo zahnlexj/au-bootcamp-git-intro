@@ -94,6 +94,15 @@ echo "$@"
 #
 # ADD YOUR CODE BELOW:
 
+<<<<<<< HEAD
+# /bin/bash
+
+# Defining variables
+
+seq1=`grep ">" $1 | wc -l`
+seq2=`grep ">" $2 | wc -l`
+ 
+=======
 
 
 
@@ -111,3 +120,4 @@ done
 ## print out the total number of sequences across files
 
 echo $ct
+>>>>>>> 778a2311df479565e5574be7062e112476eb838f
