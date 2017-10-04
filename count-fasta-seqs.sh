@@ -94,30 +94,35 @@ echo "$@"
 #
 # ADD YOUR CODE BELOW:
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
 # /bin/bash
 
-# Defining variables
+# Defining variables 
 
 seq1=`grep ">" $1 | wc -l`
 seq2=`grep ">" $2 | wc -l`
+name1=`echo $1`
+name2=`echo $2`
+
+echo $seq1
+echo $name1
  
-=======
+#=======
 
 
 
 ## a loop will run through the output for each file and keep track of the count so far
 
-ct=0
+#ct=0
 
-for x in #list of filepaths
-do
-	ct=`expr ct+$ct`
-done
+#for x in #list of filepaths
+#do
+#	ct=`expr ct+$ct`
+#done
 
 
 
 ## print out the total number of sequences across files
 
-echo $ct
->>>>>>> 778a2311df479565e5574be7062e112476eb838f
+#echo $ct
+#>>>>>>> 778a2311df479565e5574be7062e112476eb838f
