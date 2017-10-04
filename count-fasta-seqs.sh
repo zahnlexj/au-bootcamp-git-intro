@@ -121,3 +121,7 @@ done
 
 echo $ct
 >>>>>>> 778a2311df479565e5574be7062e112476eb838f
+
+#Use basename to strip directory and suffix from the filename
+#basename line of code into loop
+
