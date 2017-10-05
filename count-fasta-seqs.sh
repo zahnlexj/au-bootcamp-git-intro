@@ -195,20 +195,29 @@
 #!/bin/sh
 
 #get the last file 
+# $@ is nice because it's a list of the input arguments
 for last in "$@";
 do true;
 done
 
-#creat a file to store number
-touch seqnumber.txt
-
+#use a for loop to get the sequence number and name of all files
 for var in "$@"
 do 
-  name=$(basename "$var")
-  echo "$(grep '>' $var | wc -l) $name" 
-  echo "$(grep '>' $var | wc -l)" >> seqnumber.txt
-  if [ $var = $last ]
-  then 
-      echo `awk '{sum +=$1} END { print sum}' seqnumber.txt`
-  fi
+   #get the name of all files
+   name=`basename "$var"`
+   #get the number sequence of all files
+   number=`grep '>' "$var" | wc -l`
+   #print the number and name
+   echo "$number $name"
+   #print the number sequence to a file for the next step about calculate the total number 
+   echo "$(grep '>' $var | wc -l)" >> seqnumber.txt
+   #calculate the total number of sequence
+   if [ $var = $last ]
+   then 
+      sumseq=`awk '{sum +=$1} END { print sum}' seqnumber.txt`
+   echo "$sumseq"
+   #remove the intermediate file   
+   rm seqnumber.txt
+   fi
 done
+
