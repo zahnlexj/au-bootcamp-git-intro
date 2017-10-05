@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# IS THIS WORKING???
 # How this script should behave:
 #
 # INPUT:   Paths to one or more fasta sequence files
@@ -63,7 +63,7 @@
 # files that were 'given to' this script. The variable "$@" will be very useful
 # for this. Let's take a look at what it gives us:
 
-echo "$@"
+#echo "$@"
 
 # How are you going to work with each file path?
 # HINT: for loop (remember "for do done"?)
@@ -95,6 +95,7 @@ echo "$@"
 # ADD YOUR CODE BELOW:
 #!/bin/bash
 
+<<<<<<< HEAD
 #the number of sequence in the file
 seq1=`grep ">" $1 | wc -l`
 seq2=`grep ">" $2 | wc -l`
@@ -114,3 +115,73 @@ echo "$sum" >> number.txt
 
 
  
+=======
+#<<<<<<< HEAD
+# /bin/bash
+
+# Defining variables 
+
+seq1=`grep ">" $1 | wc -l`
+seq2=`grep ">" $2 | wc -l`
+name1=`echo $1 | awk '{print $1}'`
+name2=`echo $2`
+sum=`expr $seq1 + $seq2`
+
+# Echoing variables
+
+echo "$seq1 $name1"
+echo "$seq2 $name2"
+echo $sum
+ 
+#=======
+
+
+## a loop will run through the output for each file and keep track of the count so far
+
+#ct=0
+
+#<<<<<<< HEAD
+#for x in #list of filepaths
+#do
+#	ct=`expr ct+$ct`
+#done
+#=======
+#for x in "$@"   # $@ is nice because it's a list of the input arguments
+#do
+	# Defining variables
+	#this counts number of sequences in the file
+#	seq=`grep ">" $x | wc -l`
+
+	#this is the counter that finds the total count between files
+#	ct=`expr $ct+$seq`
+	#"seq" will be the count of sequences in file "x"
+#done
+#>>>>>>> e5dde4025b4059fdcbf56999ccb787cd0bd734b4
+
+
+
+## print out the total number of sequences across files
+
+#<<<<<<< HEAD
+#echo $ct
+#>>>>>>> 778a2311df479565e5574be7062e112476eb838f
+#=======
+#echo $ct
+#>>>>>>> 778a2311df479565e5574be7062e112476eb838f
+
+#Use basename to strip directory and suffix from the filename
+#basename line of code into loop
+
+#>>>>>>> e5dde4025b4059fdcbf56999ccb787cd0bd734b4
+
+
+####NEW LOOP AND VARIABLES
+#seqs=(`cat $@ | grep ">"`)
+
+#for ((x=0; x=<$#; x++))
+#do
+#	seqnum=`grep ">" ${seqs[$x]} | wc -l`
+#	names=`echo ${seqs[$x]}`
+#	echo "$seqnum $names"
+#done
+>>>>>>> 7a8ce1d8ae843a26b8f366225284bc2894ce6623
