@@ -95,43 +95,43 @@
 # ADD YOUR CODE BELOW:
 #!/bin/bash
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
 #the number of sequence in the file
-seq1=`grep ">" $1 | wc -l`
-seq2=`grep ">" $2 | wc -l`
+#seq1=`grep ">" $1 | wc -l`
+#seq2=`grep ">" $2 | wc -l`
 
 #the name of file
-name1=`$1`
-name2=`$2`
+#name1=`$1`
+#name2=`$2`
 
 
 #the number of sequence of two files
-sum=`expr "($name1+$name2)"`
+#sum=`expr "($name1+$name2)"`
 
-echo "$sum"
-echo "$seq1 $name1" > .txt
-echo "$seq2 $name2" >> number.txt
-echo "$sum" >> number.txt
+#echo "$sum"
+#echo "$seq1 $name1" > .txt
+#echo "$seq2 $name2" >> number.txt
+#echo "$sum" >> number.txt
 
 
  
-=======
+#=======
 #<<<<<<< HEAD
 # /bin/bash
 
 # Defining variables 
 
-seq1=`grep ">" $1 | wc -l`
-seq2=`grep ">" $2 | wc -l`
-name1=`echo $1 | awk '{print $1}'`
-name2=`echo $2`
-sum=`expr $seq1 + $seq2`
+#seq1=`grep ">" $1 | wc -l`
+#seq2=`grep ">" $2 | wc -l`
+#name1=`echo $1 | awk '{print $1}'`
+#name2=`echo $2`
+#sum=`expr $seq1 + $seq2`
 
 # Echoing variables
 
-echo "$seq1 $name1"
-echo "$seq2 $name2"
-echo $sum
+#echo "$seq1 $name1"
+#echo "$seq2 $name2"
+#echo $sum
  
 #=======
 
@@ -184,4 +184,31 @@ echo $sum
 #	names=`echo ${seqs[$x]}`
 #	echo "$seqnum $names"
 #done
->>>>>>> 7a8ce1d8ae843a26b8f366225284bc2894ce6623
+#>>>>>>> 7a8ce1d8ae843a26b8f366225284bc2894ce6623
+
+
+
+
+
+
+
+#!/bin/sh
+
+#get the last file 
+for last in "$@";
+do true;
+done
+
+#creat a file to store number
+touch seqnumber.txt
+
+for var in "$@"
+do 
+  name=$(basename "$var")
+  echo "$(grep '>' $var | wc -l) $name" 
+  echo "$(grep '>' $var | wc -l)" >> seqnumber.txt
+  if [ $var = $last ]
+  then 
+      echo `awk '{sum +=$1} END { print sum}' seqnumber.txt`
+  fi
+done
