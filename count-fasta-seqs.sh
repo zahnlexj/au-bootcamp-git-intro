@@ -63,7 +63,7 @@
 # files that were 'given to' this script. The variable "$@" will be very useful
 # for this. Let's take a look at what it gives us:
 
-echo "$@"
+#echo "$@"
 
 # How are you going to work with each file path?
 # HINT: for loop (remember "for do done"?)
@@ -101,11 +101,15 @@ echo "$@"
 
 seq1=`grep ">" $1 | wc -l`
 seq2=`grep ">" $2 | wc -l`
-name1=`echo $1`
+name1=`echo $1 | awk '{print $1}'`
 name2=`echo $2`
+sum=`expr $seq1 + $seq2`
 
-echo $seq1
-echo $name1
+# Echoing variables
+
+echo "$seq1 $name1"
+echo "$seq2 $name2"
+echo $sum
  
 #=======
 
@@ -120,16 +124,16 @@ echo $name1
 #	ct=`expr ct+$ct`
 #done
 #=======
-for x in "$@"   # $@ is nice because it's a list of the input arguments
-do
+#for x in "$@"   # $@ is nice because it's a list of the input arguments
+#do
 	# Defining variables
 	#this counts number of sequences in the file
-	seq=`grep ">" $x | wc -l`
+#	seq=`grep ">" $x | wc -l`
 
 	#this is the counter that finds the total count between files
-	ct=`expr $ct+$seq`
+#	ct=`expr $ct+$seq`
 	#"seq" will be the count of sequences in file "x"
-done
+#done
 #>>>>>>> e5dde4025b4059fdcbf56999ccb787cd0bd734b4
 
 
@@ -140,10 +144,21 @@ done
 #echo $ct
 #>>>>>>> 778a2311df479565e5574be7062e112476eb838f
 #=======
-echo $ct
+#echo $ct
 #>>>>>>> 778a2311df479565e5574be7062e112476eb838f
 
 #Use basename to strip directory and suffix from the filename
 #basename line of code into loop
 
 #>>>>>>> e5dde4025b4059fdcbf56999ccb787cd0bd734b4
+
+
+####NEW LOOP AND VARIABLES
+#seqs=(`cat $@ | grep ">"`)
+
+#for ((x=0; x=<$#; x++))
+#do
+#	seqnum=`grep ">" ${seqs[$x]} | wc -l`
+#	names=`echo ${seqs[$x]}`
+#	echo "$seqnum $names"
+#done
