@@ -251,3 +251,6 @@ done
 #last line of output
 
 echo "$ct"
+
+
+### Our repository is located at https://github.com/zahnlexj/au-bootcamp-git-intro
