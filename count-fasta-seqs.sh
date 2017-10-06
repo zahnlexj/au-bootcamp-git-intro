@@ -147,6 +147,9 @@
 #	ct=`expr ct+$ct`
 #done
 #=======
+
+
+
 #for x in "$@"   # $@ is nice because it's a list of the input arguments
 #do
 	# Defining variables
@@ -157,6 +160,10 @@
 #	ct=`expr $ct+$seq`
 	#"seq" will be the count of sequences in file "x"
 #done
+
+
+
+
 #>>>>>>> e5dde4025b4059fdcbf56999ccb787cd0bd734b4
 
 
@@ -201,24 +208,46 @@ for last in "$@";
 do true;
 done
 
+# it's much easier to count the total by establishing a second variable to count:
+
+ct=0
+
+
 #use a for loop to get the sequence number and name of all files
 for var in "$@"
 do 
+
    #get the name of all files
    name=`basename "$var"`
+
    #get the number sequence of all files
    number=`grep '>' "$var" | wc -l`
+   echo $number
+
    #print the number and name
    echo "$number $name"
+
    #print the number sequence to a file for the next step about calculate the total number 
-   echo "$(grep '>' $var | wc -l)" >> seqnumber.txt
+   #echo "$(grep '>' $var | wc -l)" >> seqnumber.txt
+
    #calculate the total number of sequence
-   if [ $var = $last ]
-   then 
-      sumseq=`awk '{sum +=$1} END { print sum}' seqnumber.txt`
-   echo "$sumseq"
-   #remove the intermediate file   
-   rm seqnumber.txt
-   fi
+   #if [ $var = $last ]
+   #then 
+   #   sumseq=`awk '{sum +=$1} END { print sum}' seqnumber.txt`
+   #   echo "$sumseq"
+
+      #remove the intermediate file   
+   #   rm seqnumber.txt
+   #fi
+
+
+   #add the number of sequences for file "$var" to the running total
+   ct=`expr $ct + $number`
+
+
 done
 
+
+#last line of output
+
+echo "$ct"
