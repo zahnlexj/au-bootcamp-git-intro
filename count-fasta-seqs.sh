@@ -222,10 +222,10 @@ do
 
    #get the number sequence of all files
    number=`grep '>' "$var" | wc -l`
-   echo $number
+   #echo $number
 
    #print the number and name
-   echo "$number $name"
+   echo $number" "$name     #the issue here was that the called variables were in quotation marks, which screwed with the text display
 
    #print the number sequence to a file for the next step about calculate the total number 
    #echo "$(grep '>' $var | wc -l)" >> seqnumber.txt
