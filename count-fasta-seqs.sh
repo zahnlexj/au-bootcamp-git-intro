@@ -197,7 +197,7 @@
 #get the last file 
 # $@ is nice because it's a list of the input arguments
 for last in "$@";
-do ture;
+do true;
 done
 
 #use a for loop to get the sequence number and name of all files
