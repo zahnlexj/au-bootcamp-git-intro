@@ -1,5 +1,6 @@
 #!/bin/sh
-# IS THIS WORKING???
+#Best Group Ever: Tucker, Xavier, Wenwen, and Nick
+#Introduction to Computational Biology Lab 4
 # How this script should behave:
 #
 # INPUT:   Paths to one or more fasta sequence files
